@@ -4,6 +4,9 @@ services:
   auth-service:
     build:
       context: ./auth-service
+    volumes:
+      - ./auth-service:/var/www
+      - ./auth-service/.env:/var/www/.env
     ports:
       - "8001:8000"
     env_file:
@@ -17,6 +20,9 @@ services:
   product-service:
     build:
       context: ./product-service
+    volumes:
+      - ./product-service:/var/www
+      - ./product-service/.env:/var/www/.env
     ports:
       - "8002:8000"
     env_file:
